@@ -54,7 +54,7 @@ class Posts extends React.Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    this.getComments();
+    /*     this.getComments(); */
     if (prevProps.data.likes !== this.props.data.likes) {
       if (this.props.data.likes.filter((like) => like.userId === this.props.loggedInUserID).length !== 0) {
         this.setState({ liked: true });

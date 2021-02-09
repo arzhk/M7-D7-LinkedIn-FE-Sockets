@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import Registration from "./components/Registration";
 import MyNetwork from "./components/MyNetwork";
 import SignOut from "./components/SignOut";
+import Chat from "./components/Chat";
 
 function App() {
   const [isContactInfoOpen, setIsContactInfoOpen] = useState(false);
@@ -44,6 +45,11 @@ function App() {
       {loggedInUserData.isSuccess && (
         <Route path="/">
           <NavBar userData={loggedInUserData} setUserData={setUserDataHandler} />
+        </Route>
+      )}
+      {loggedInUserData.isSuccess && (
+        <Route path="/">
+          <Chat userData={loggedInUserData} />
         </Route>
       )}
       <Route path="/feed" exact>
