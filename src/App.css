@@ -1161,10 +1161,10 @@ Body {
   right: 1rem;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  height: 500px;
   width: 400px;
   border-radius: 0.5rem;
   z-index: 9999;
+  box-shadow: 0px -5px 15px -1px rgba(0, 0, 0, 0.15);
 }
 
 .chat-header {
@@ -1175,14 +1175,13 @@ Body {
 .chat-middle {
   padding: 0.5rem 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  min-height: 60%;
-  max-height: 60%;
+  height: 400px;
   overflow-y: scroll;
 }
 
 .chat-message {
-  padding: 12px 16px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .chat-username {

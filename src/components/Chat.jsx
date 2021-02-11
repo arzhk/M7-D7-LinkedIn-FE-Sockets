@@ -17,6 +17,7 @@ function Chat(props) {
       setMessages((messages) => messages.concat(msg));
     });
     socket.on("connect", () => console.log("connected to socket"));
+    socket.emit("setUsername", { username: "Aaron" });
     scrollToBottom();
   }, []);
 
@@ -47,8 +48,13 @@ function Chat(props) {
     <div id="chat-main-container">
       <div className="chat-header d-flex justify-content-between">
         <div className="d-flex align-items-center">
-          <div className="mr-2" style={{ background: "black", width: 36, height: 36, borderRadius: "50%" }}></div>
-          <p className="mb-0">Test</p>
+          <div
+            className="mr-2"
+            style={{ background: "rgba(0,0,0,.125)", width: 36, height: 36, borderRadius: "50%" }}
+          ></div>
+          <p className="font-weight-bold mb-0" style={{ fontSize: 14 }}>
+            Everyone
+          </p>
         </div>
         <div className="d-flex align-items-center">
           <i className="fas fa-expand-alt fa-flip-horizontal mr-3"></i>
@@ -71,9 +77,20 @@ function Chat(props) {
             className="mb-2 w-100 pb-5"
             onChange={(event) => updateMessageInput(event)}
           ></input>
-          <Button type="submit" className="rounded-pill" disabled={newMessage.length === 0}>
-            Send Message
-          </Button>
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex align-items-center px-4">
+              <i className="far fa-image mr-3"></i>
+              <i className="fas fa-link mr-3"></i>
+              <i className="far fa-smile mr-3"></i>
+              <i className="fas fa-video"></i>
+            </div>
+            <div className="d-flex align-items-center px-3">
+              <Button type="submit" className="rounded-pill mr-3" disabled={newMessage.length === 0}>
+                Send
+              </Button>
+              <i className="fas fa-ellipsis-h"></i>
+            </div>
+          </div>
         </form>
       </div>
     </div>
